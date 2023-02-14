@@ -1,0 +1,56 @@
+    <!-- <input
+    #input
+    type="number"
+    (click)="selectIndex($event)"
+     /> -->
+     <!-- <input
+      #input     
+     (keyup)="0"
+     (keyup)="selectPokemeon(input.value)"
+     type="text"
+     (click)="selectIndex($event)"
+      /> -->
+
+  
+
+      <input
+      #input     
+      (keyup.enter)="selectNumberPokemeon(input.value)"
+      type="number"
+      (click)="selectIndex($event)"
+      />
+      <p *ngIf="pokemonSlected"> Vous avez selectionner : {{ pokemonSlected?.name }}</p>
+      <p *ngIf="!pokemonSlected"> Aucun recheche</p>
+      
+      <router-outlet></router-outlet>
+
+
+
+
+  <p (click)="changNom(title[0])" *ngFor="let i of title" >{{i.name}}</p> -->
+   <div *ngFor="let i of title; let index = index">
+      <p class="col m4 s6" [ngStyle]="{ 'background-color': index === selectedindex ? 'yellow' : '' }" (click)="changNom(title[1])">{{i.name}}</p>
+  </div>
+
+    <h1 #heading (click)="changeNom(heading)">Awdi</h1>
+
+    <input type="text"  
+    (keyup)="selectTextPokemeon($event)">
+
+    <div *ngFor="let item of SearchPokemon; index as i">
+          <p class="dataresults_p">{{item.name}}</p>
+    </div>
+    <!-- <router-outlet></router-outlet> -->
+
+
+       <!-- ng generate component list-pokemon --inline-template=false -->
+       <!-- inline-template:generate ts and html -->
+
+      
+
+
+
+
+
+
+

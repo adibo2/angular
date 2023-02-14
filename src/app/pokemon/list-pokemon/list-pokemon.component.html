@@ -1,0 +1,27 @@
+<p>list-pokemon works!</p>
+
+<h1 class='center'>Pokémons</h1>
+<div class='container'>
+<div class="row">
+<div *ngFor='let pokemon of title' class="col s6 m4">
+  <div class="card horizontal" 
+  (click)="selectPokemon(pokemon)" 
+  appBorderCard>
+    <div class="card-image">
+      <img [src]="pokemon.picture">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p>{{ pokemon.name }}</p>
+        <p><small>{{ pokemon.created | date:'d/M/y' }}</small></p>
+        <span *ngFor="let type of pokemon.types" class="{{type | pokemonType}}">
+            {{type}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ng generate component list-pokemon --inline-template=false  ng generate component detail-pokemon --inline-template=false   -->

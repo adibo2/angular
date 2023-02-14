@@ -1,0 +1,53 @@
+<p>detail-pokdetail works!</p>
+<div *ngIf="pokdetail" class="row">
+    <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ pokdetail.name }}</h2>
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img [src]="pokdetail.picture">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td><strong>{{ pokdetail.name }}</strong></td>
+              </tr>
+              <tr>
+                <td>Points de vie</td>
+                <td><strong>{{ pokdetail.hp }}</strong></td>
+              </tr>
+              <tr>
+                <td>Dégâts</td>
+                <td><strong>{{ pokdetail.cp }}</strong></td>
+              </tr>
+              <tr>
+                <td>Types</td>
+                <td>
+                  <span *ngFor="let type of pokdetail.types" class="{{ type | pokemonType }}">{{ type }}</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Date de création</td>
+                <td><em>{{ pokdetail.created | date:"dd/MM/yyyy" }}</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a routerLink="/pokemons" 
+
+          >Retour</a>
+          <a (click)="goToEditPokemon(pokdetail)">Editer</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div *ngIf='!pokdetail' class="center">
+        Aucun pokémon à afficher !
+        <h1 routerLink="/pokemons">accueil</h1>
+
+    </div>
